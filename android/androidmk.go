@@ -588,6 +588,7 @@ func (a *AndroidMkEntries) fillInEntries(ctx fillInEntriesContext, mod blueprint
 		if Bool(base.commonProperties.Vendor) || Bool(base.commonProperties.Soc_specific) {
 			a.SetString("LOCAL_VENDOR_MODULE", "true")
 		}
+		a.SetBoolIfTrue("LOCAL_VENDOR_OVERLAY_MODULE", Bool(base.commonProperties.Vendor_overlay))
 		a.SetBoolIfTrue("LOCAL_ODM_MODULE", Bool(base.commonProperties.Device_specific))
 		a.SetBoolIfTrue("LOCAL_PRODUCT_MODULE", Bool(base.commonProperties.Product_specific))
 		a.SetBoolIfTrue("LOCAL_SYSTEM_EXT_MODULE", Bool(base.commonProperties.System_ext_specific))
